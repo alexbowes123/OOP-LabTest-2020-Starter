@@ -10,7 +10,15 @@ public class Gantt extends PApplet
 {	
 	public ArrayList<Task>tasks = new ArrayList<Task>();
 
-	private void loadCodes()
+	
+	public void settings()
+	{
+		size(800, 600);
+		loadTasks();
+		printTasks();
+	}
+
+	public void loadTasks()
 	{
 		Table t = loadTable("tasks.csv", "header");
 		for(TableRow row:t.rows())
@@ -18,20 +26,15 @@ public class Gantt extends PApplet
 			Task x = new Task(row);
 			tasks.add(x);
 		}
-	}
-	
-	public void settings()
-	{
-		size(800, 600);
-	}
-
-	public void loadTasks()
-	{
 		
 	}
 
 	public void printTasks()
 	{
+		for(Task t:tasks)
+		{
+			println(t);		
+		}
 		
 	}
 	
