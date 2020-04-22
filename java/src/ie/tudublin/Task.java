@@ -3,46 +3,53 @@ package ie.tudublin;
 import processing.data.TableRow;
 
 public class Task {
-    private String Task;        //private fields
-    private int Start;
-    private int End;
+    private String task;        //private fields
+    private int start;
+    private int end;
 
-    public Task(String task, int start, int end) {
-        Task = task;                       //constructors
-        Start = start;
-        End = end;
-    }
-
-
-  
-
-    @Override
-    public String toString() {
-        return "Task [End=" + End + ", Start=" + Start + ", Task=" + Task + "]";    //toString method
-    }
-
+    // getters and setters / accessor methods
     public String getTask() {
-        return Task;
+        return task;
     }
 
     public void setTask(String task) {
-        Task = task;
+        this.task = task;
     }
-                                            //getters and setters
+
     public int getStart() {
-        return Start;
+        return start;
     }
 
     public void setStart(int start) {
-        Start = start;
+        this.start = start;
     }
 
     public int getEnd() {
-        return End;
+        return end;
     }
 
     public void setEnd(int end) {
-        End = end;
+        this.end = end;
     }
+
+    public Task(String task, int start, int end) {
+        this.task = task;
+        this.start = start;             //constructors
+        this.end = end;
+    }
+
+    @Override
+    public String toString() {
+        return "Task [end=" + end + ", start=" + start + ", task=" + task + "]";
+    }
+
+
+    public Task(TableRow tr)
+    {
+        this(tr.getString("Task"),tr.getInt("Start"),tr.getInt("End"));
+    }
+
+
+
 
 }
