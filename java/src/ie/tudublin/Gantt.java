@@ -8,12 +8,14 @@ import processing.data.TableRow;
 
 public class Gantt extends PApplet
 {	
+	int width = 800;
+	int height = 600;
 	public ArrayList<Task>tasks = new ArrayList<Task>();
 
 	
 	public void settings()
 	{
-		size(800, 600);
+		size(width, height);
 	}
 
 	public void loadTasks()
@@ -38,15 +40,19 @@ public class Gantt extends PApplet
 
 	public void displayTasks()
 	{
-		int y = 60;
-		int x = 30;
+
 		for(int i = 0; i< tasks.size();i++)
 		{
 			Task t = tasks.get(i);
-			textAlign(LEFT, CENTER);
+
+			
+		//	float x = PApplet.map(i,0,tasks.size(),80,height-150);
+			float y = PApplet.map(i,0,tasks.size(),80,height -150);
+			noStroke();
 			fill(255);
-			text(t.getTask(), x, y);
-			y+=40;
+			textAlign(CENTER, CENTER);
+			text(t.getTask(), 50, y);
+			
 		}
 
 
